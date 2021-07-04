@@ -3,7 +3,7 @@ package me.mrgazdag.programs.reflectioneval;
 import me.mrgazdag.programs.reflectioneval.exception.ParseException;
 import me.mrgazdag.programs.reflectioneval.text.StyledText;
 
-class StringReader {
+public class StringReader {
     private static final char SYNTAX_ESCAPE = '\\';
     private static final char SYNTAX_DOUBLE_QUOTE = '"';
     private static final char SYNTAX_SINGLE_QUOTE = '\'';
