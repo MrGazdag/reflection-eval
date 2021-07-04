@@ -49,7 +49,7 @@ public class ExecutionContext {
     @SuppressWarnings("unchecked")
     public StyledText prettyPrint(Object obj, Class<?> type) {
         for (Map.Entry<Class<?>, Function<?, StyledText>> entry : styledTextProducers.entrySet()) {
-            if (entry.getClass().isAssignableFrom(type)) {
+            if (entry.getKey() == type || entry.getKey().isAssignableFrom(type)) {
                 return ((Function<Object,StyledText>)entry.getValue()).apply(obj);
             }
         }

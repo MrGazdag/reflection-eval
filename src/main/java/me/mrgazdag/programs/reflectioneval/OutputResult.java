@@ -15,6 +15,7 @@ public class OutputResult {
         this.inputText = inputText;
     }
 
+
     public void printTo(CommandTarget output) {
         output.sendMessage(context.prettyPrint(object, clazz));
     }

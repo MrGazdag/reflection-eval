@@ -12,7 +12,7 @@ public class SuggestionCollection {
     private final List<SuggestionEntry> suggestions;
 
     public SuggestionCollection(String input, int offset) {
-        this.offset = 0;
+        this.offset = offset;
         this.input = input;
         this.remaining = input.substring(offset);
         this.suggestions = new ArrayList<>();
@@ -27,7 +27,7 @@ public class SuggestionCollection {
     }
 
     public SuggestionCollection createOffset(int offset) {
-        return new SuggestionCollection(input, this.offset + offset);
+        return new SuggestionCollection(input, offset);
     }
 
     public SuggestionCollection suggest(String suggestion) {

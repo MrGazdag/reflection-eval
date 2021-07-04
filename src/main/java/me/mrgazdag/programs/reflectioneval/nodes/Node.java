@@ -32,7 +32,7 @@ public abstract class Node implements Supplier<OutputResult> {
         return Object.class;
     }
 
-    protected static StyledText exceptionToMessage(Throwable e) {
+    public static StyledText exceptionToMessage(Throwable e) {
         if (e instanceof ParseException pe) return pe.getStyledMessage();
         else if (e instanceof ExecuteException ee) return ee.getStyledMessage();
         /*

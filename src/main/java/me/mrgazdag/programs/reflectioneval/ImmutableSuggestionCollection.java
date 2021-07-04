@@ -12,6 +12,10 @@ public class ImmutableSuggestionCollection {
         this.suggestions = Collections.unmodifiableList(suggestions);
     }
 
+    public int getOffset() {
+        return offset;
+    }
+
     public List<SuggestionEntry> getSuggestions() {
         return suggestions;
     }

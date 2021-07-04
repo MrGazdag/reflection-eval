@@ -23,13 +23,13 @@ public class StyledText {
 
     public StyledText(Style style, String text) {
         this.formatType = null;
-        this.style = style == null ? new Style() : null;
+        this.style = style == null ? new Style() : style;
         this.text = text;
         this.children = new ArrayList<>();
     }
     public StyledText(FormatType type, Style style, String text) {
         this.formatType = type;
-        this.style = style == null ? new Style() : null;
+        this.style = style == null ? new Style() : style;
         this.text = text;
         this.children = new ArrayList<>();
     }
@@ -81,7 +81,8 @@ public class StyledText {
             }
             data.put("extra", children);
         }
-        return style.patch(data);
+        if (style != null) style.patch(data);
+        return data;
     }
 
     public String getRawText() {
