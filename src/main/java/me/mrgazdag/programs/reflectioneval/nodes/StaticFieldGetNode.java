@@ -84,9 +84,9 @@ public class StaticFieldGetNode extends Node {
             field.setAccessible(true);
             Utils.warning(context, "Field " + Utils.className(context, instanceClass) + "." + fieldName + " is " + Utils.accessLevel(field));
         }
-        if (!Modifier.isPublic(instanceClass.getModifiers()) && !context.isPubliconly()) {
+        if (!Modifier.isPublic(field.getDeclaringClass().getModifiers()) && !context.isPubliconly()) {
             field.setAccessible(true);
-            Utils.warning(context, "Class " + Utils.className(context, instanceClass) + " is " + Utils.accessLevel(instanceClass));
+            Utils.warning(context, "Class " + Utils.className(context, field.getDeclaringClass()) + " is " + Utils.accessLevel(field.getDeclaringClass()));
         }
 
         if (!Modifier.isStatic(field.getModifiers())) {

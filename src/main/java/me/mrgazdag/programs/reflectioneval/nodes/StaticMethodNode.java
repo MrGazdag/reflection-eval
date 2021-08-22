@@ -102,9 +102,9 @@ public class StaticMethodNode extends Node {
             method.setAccessible(true);
             Utils.warning(context, "Method " + Utils.className(context, staticClass) + "." + Utils.method(context, methodName, resultTypes) + " is " + Utils.accessLevel(method));
         }
-        if (!Modifier.isPublic(staticClass.getModifiers()) && !context.isPubliconly()) {
+        if (!Modifier.isPublic(method.getDeclaringClass().getModifiers()) && !context.isPubliconly()) {
             method.setAccessible(true);
-            Utils.warning(context, "Class " + Utils.className(context, staticClass) + " is " + Utils.accessLevel(staticClass));
+            Utils.warning(context, "Class " + Utils.className(context, method.getDeclaringClass()) + " is " + Utils.accessLevel(method.getDeclaringClass()));
         }
 
         // - get return class
