@@ -75,6 +75,10 @@ public class StaticFieldSetNode extends Node {
             field.setAccessible(true);
             Utils.warning(context, "Field " + Utils.className(context, instanceClass) + "." + fieldName + " is " + Utils.accessLevel(field));
         }
+        if (!Modifier.isPublic(instanceClass.getModifiers()) && !context.isPubliconly()) {
+            field.setAccessible(true);
+            Utils.warning(context, "Class " + Utils.className(context, instanceClass) + " is " + Utils.accessLevel(instanceClass));
+        }
         if (!Modifier.isStatic(field.getModifiers())) {
             //   - if its static, throw error
             throw new ParseException(exceptionToMessage(new IllegalAccessException("Field '" + fieldName + "' is static")));

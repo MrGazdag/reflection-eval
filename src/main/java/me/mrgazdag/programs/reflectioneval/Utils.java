@@ -65,6 +65,13 @@ public class Utils {
         else if (Modifier.isProtected(mod)) return "protected";
         else return "package-private";
     }
+    public static String accessLevel(Class<?> clazz) {
+        int mod = clazz.getModifiers();
+        if (Modifier.isPublic(mod)) return "public";
+        else if (Modifier.isPrivate(mod)) return "private";
+        else if (Modifier.isProtected(mod)) return "protected";
+        else return "package-private";
+    }
 
     public static Constructor<?> findConstructor(Class<?> clazz, Class<?>[] resultTypes) {
         try {
